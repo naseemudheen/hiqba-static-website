@@ -134,9 +134,8 @@ P.O Box 83021, Dubai</h6>
             <div class="col-md-12 col-lg-8 style-2">
                 <div class="message" id="flashpack" role="alert" >
                     </div>
-                    <form action="https://script.google.com/macros/s/AKfycbyD_Rs7NRcibhpd2UWglIFxb0hHUH807UNv3D07YCQ6voUhgte_wZJUC-caqHQ4GltQ/exec" name="package_form" id="package_form" class="gform" method="post" accept-charset="utf-8">
+                   <form  name="package_form" id="package_form" class="gform booking-form" method="post" accept-charset="utf-8">
                     <div class="tab-content" id="nav-tabContent">
-                        <!-- item start -->
                         <div class="tab-pane fade show active" id="nav-hotelbk" role="tabpanel" aria-labelledby="nav-hotelbk-tab">
                             <div class="form-row ">
                                 <div class="form-group col-md-6">
@@ -159,13 +158,12 @@ P.O Box 83021, Dubai</h6>
                                         <option value="3" >Thailand </option>
                                                                         </select>
                                 </div>
+
                                 <div class="form-group col-md-12">
                                     <textarea class="form-control" rows="5" placeholder="Message" id="message" name="message"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                               <!-- <div class="form-group">
-                                    <div class="g-recaptcha" data-sitekey="6Ld9gJ8UAAAAAHnqxyc3Bs5qW2K-Iwws4LI15oI-"></div> 
-                                </div>-->
+                            
                             </div>
                                 <div class="form-group col-md-12">
                                     <div class="contact-textarea text-center">
@@ -177,6 +175,7 @@ P.O Box 83021, Dubai</h6>
                         </div>
                     </div>
                 </form>
+               
             </div>
         </div>
     </div>
@@ -321,86 +320,97 @@ P.O Box 83021, Dubai</h6>
        });
    });
     // </script><script type="text/javascript">
-    // $('body').on('click','.frompackage',function(){
-    //     $("#flashpack").removeClass( "alert alert-success" ).html('');
-    //     $("#flashpack").removeClass( "alert alert-danger" ).html('');
-    //     var name = $('#name').val();
-    //         if(name == ''){
-    //             $('#name').css("border-color","red");
-    //             return false;
-    //         }else{
-    //             $('#name').css("border-color","");
-    //         }
+    $('body').on('click','.frompackage',function(){
+        $("#flashpack").removeClass( "alert alert-success" ).html('');
+        $("#flashpack").removeClass( "alert alert-danger" ).html('');
+        var name = $('#name').val();
+            if(name == ''){
+                $('#name').css("border-color","red");
+                return false;
+            }else{
+                $('#name').css("border-color","");
+            }
         
-    //     var emailids  = $('#email').val();
-    //         if(emailids == ''){
-    //            $('#email').css("border-color", "red");
-    //           return false;
-    //         }
-    //         else{
-    //             var s = ValidEmail(emailids);
-    //                 if(s == false) {
-    //                     $('#email').css("border-color", "red");
-    //                    return false;
-    //                 }
-    //                 else{
-    //                     $('#email').css("border-color", "");
-    //                 }
-    //         }
-    //         var phone=$('#mobile').val();
-    //         if(phone==''){
-    //             $("#mobile").css("border-color","red");
-    //             return false;
-    //         }else{
-    //             $("#mobile").css("border-color","");
-    //         }  
-    //     var package = $('#package').val();
-    //         if(package == ''){
-    //             $('#package').css("border-color","red");
-    //             return false;
-    //         }else{
-    //             $('#package').css("border-color","");
-    //         }    
-    //     var message = $('#message').val();
-    //         if(message == ''){
-    //             $("#message").css("border-color", "red");
-    //             return false;
-    //         }else{
-    //             $('#message').css("border-color","");
-    //             var data= $("#package_form").serialize();
-    //             $('#submit_package').attr("disabled", true);
-    //             $('#submit_package').text("Please wait...");
-    //             $.ajax({
-    //                 url : site_url+"bookpackage",
-    //                 type : 'POST',
-    //                 data : data,
-    //                 success:function(response){
-    //                     //console.log(response); return false;
-    //                     $('#submit_package').attr("disabled", false);
-    //                     $('#submit_package').text('SEND MESSAGE ');
-    //                     if(response==1){
-    //                        $("#flashpack").addClass( "alert alert-success" );
-    //                         var msg='<span style="color:green;font-size: 14px;"><strong>Thank you for your interest. We will contact you soon.</strong> </span>';
-    //                         $('#flashpack').html(msg);
-    //                         $("#contactform")[0].reset();
-    //                         setTimeout(function(){
-    //                              window.location.reload(1);
-    //                         }, 2000);
-    //                     }else if(response==3){
-    //                         $("#flashpack").addClass( "alert alert-danger" );
-    //                         var msg='<span style="color:red;font-size: 14px;"><strong>Sorry ! Google Recaptcha Unsuccessful.</strong> </span>';
-    //                         $('#flashpack').html(msg);
-    //                     }else{
-    //                         $("#flashpack").addClass( "alert alert-danger" );
-    //                         var msg='<span style="color:red;font-size: 14px;"><strong> Oops..something went wrong.</strong> </span>';
-    //                         $('#flashpack').html(msg);
-    //                     }
-    //                 }
-    //             });
-    //         }
-    // });
-    // function ValidEmail(emailAddress) {
-    //        var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
-    //        return pattern.test(emailAddress);
-    //      };
+        var email  = $('#email').val();
+            if(email == ''){
+               $('#email').css("border-color", "red");
+              return false;
+            }
+            else{
+                var s = ValidEmail(email);
+                    if(s == false) {
+                        $('#email').css("border-color", "red");
+                       return false;
+                    }
+                    else{
+                        $('#email').css("border-color", "");
+                    }
+            }
+            var mobile=$('#mobile').val();
+            if(mobile==''){
+                $("#mobile").css("border-color","red");
+                return false;
+            }else{
+                $("#mobile").css("border-color","");
+            }  
+        var package = $('#package').find(":selected").text();
+            if(package == ''){
+                $('#package').css("border-color","red");
+                return false;
+            }else{
+                $('#package').css("border-color","");
+            }    
+        var message = $('#message').val();
+            if(message == ''){
+                $("#message").css("border-color", "red");
+                return false;
+            }else{
+                $('#message').css("border-color","");
+                var data= {
+                    'name':name,
+                    'email':email,
+                    'mobile':mobile,
+                    'package':package,
+                    'message':message,
+                };
+                console.log(data)
+                
+                $('#submit_package').attr("disabled", true);
+                $('#submit_package').text("Please wait...");
+                $.ajax({
+                    url : "https://script.google.com/macros/s/AKfycbyD_Rs7NRcibhpd2UWglIFxb0hHUH807UNv3D07YCQ6voUhgte_wZJUC-caqHQ4GltQ/exec",
+                    type : 'POST',
+                    data : data,
+                    success:function(response){
+                        console.log(response['result'])
+                        //console.log(response); return false;
+                        $('#submit_package').attr("disabled", false);
+                        $('#submit_package').text('SEND MESSAGE ');
+                        if(response['result']=='success'){
+                           $("#flashpack").addClass( "alert alert-success" );
+                            var msg='<span style="color:green;font-size: 14px;"><strong>Thank you for your interest. We will contact you soon.</strong> </span>';
+                            $('#flashpack').html(msg);
+                            $("#contactform")[0].reset();
+                            setTimeout(function(){
+                                 window.location.reload(1);
+                            }, 2000);
+                        }
+                        // else if(response==3){
+                        //     $("#flashpack").addClass( "alert alert-danger" );
+                        //     var msg='<span style="color:red;font-size: 14px;"><strong>Sorry ! Google Recaptcha Unsuccessful.</strong> </span>';
+                        //     $('#flashpack').html(msg);
+                        // }
+                        else{
+                            $("#flashpack").addClass( "alert alert-danger" );
+                            var msg='<span style="color:red;font-size: 14px;"><strong> Oops..something went wrong.</strong> </span>';
+                            $('#flashpack').html(msg);
+                        }
+                    }
+                });
+            }
+    });
+    function ValidEmail(emailAddress) {
+           var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+           return pattern.test(emailAddress);
+         };
 </script>
