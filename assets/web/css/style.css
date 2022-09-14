@@ -702,7 +702,7 @@ input:-moz-placeholder {
 }
 
 /* ========== PRELOADER ========== */
-/* .preloader {
+.preloader {
 	background-color: #fff;
 	background-image: url(../images/nextloader.png);
 	background-position: center center;
@@ -713,9 +713,9 @@ input:-moz-placeholder {
 	top: 0px;
 	width: 100%;
 	z-index: 999999;
-	/*  -webkit-animation: spinloader 2s infinite linear;
-    animation: spinloader 2s infinite linear;
-} */
+	  /* -webkit-animation: spinloader 2s infinite linear; */
+    /* animation: spinloader 2s infinite linear; */
+}
 
 /*Scrollup CSS*/
 
