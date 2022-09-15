@@ -138,7 +138,7 @@ P.O Box 83021, Dubai</h6>
                <div class="message" id="flashbook" role="alert" >
                         </div>
                     </div>
-                    <form action="servicebook/1" name="service_form" id="service_form" class="booking-form" method="post" accept-charset="utf-8">
+                    <form  name="service_form" id="service_form" class="booking-form" method="post" accept-charset="utf-8">
                    
                     <div class="tab-content" id="nav-tabContent">
                         <!-- item start -->
@@ -155,7 +155,7 @@ P.O Box 83021, Dubai</h6>
                                     <input type="text" name="mobile" id="mobile" class="form-control" placeholder="Contact Number" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <select class="form-control"  name="services" id="services">
+                                    <select class="form-control"  name="service" id="services">
                                                                                     
                                             <option value="19" >TRAVEL INSURANCE</option>
                                                                                    
@@ -338,12 +338,12 @@ P.O Box 83021, Dubai</h6>
             }else{
                 $("#name").css("border-color","");
             }
-        var emails = $("#email").val();
-            if(emails == ''){
+        var email = $("#email").val();
+            if(email == ''){
                 $('#email').css("border-color", "red");
                 return false;
             }else{
-               var s = ValidEmail(emails);
+               var s = ValidEmail(email);
                 if(s == false) {
                     $('#email').css("border-color", "red");
                     return false;
@@ -359,8 +359,8 @@ P.O Box 83021, Dubai</h6>
             }else{
                 $('#mobile').css("border-color","");
             }
-        var services =$('#services').val();
-            if(services == ''){
+        var service =$('#services').find(":selected").text();
+            if(service == ''){
                 $('#services').css("border-color","red");
                 return false;
             }else{
@@ -373,21 +373,27 @@ P.O Box 83021, Dubai</h6>
             }else{
                 $('#message').css("border-color","");
             }
-        var data = $("#service_form").serialize();
+            var data= {
+                    'name':name,
+                    'email':email,
+                    'mobile':mobile,
+                    'service':service,
+                    'message':message,
+                };
         //console.log(data); return false;
        /* $("#servicesubmit").attr('disabled',true);
         $("#servicesubmit").val("Please wait...");*/
         $('#servicesubmit').attr("disabled", true);
                 $('#servicesubmit').text("Please wait...");
         $.ajax({
-           url : site_url+"servicebook",
+           url : "https://script.google.com/macros/s/AKfycbzTZpnAao1lB4JhmAL4mENSD33q6K7goO4ajfB0jFAaTZnhnHjCNAOXGyj4pcjTZ9N7/exec",
            type :'POST',
            data : data,
            success : function(response){
             //console.log(response); return false;
             $('#servicesubmit').attr("disabled", false);
             $('#servicesubmit').text('Submit ');
-            if(response==1){
+            if(response['result']=='success'){
                $("#flashbook").addClass( "alert alert-success" );
                 var msg='<span style="color:green;font-size: 14px;"><strong>Thank you for your Enquiry. We will contact you soon.</strong> </span>';
                             $('#flashbook').html(msg);
@@ -395,15 +401,8 @@ P.O Box 83021, Dubai</h6>
                            setTimeout(function(){
 window.location.reload(1);
 }, 2000);
-                        }else if(response==3){
-                            $("#flashbook").addClass( "alert alert-danger" );
-                             var msg='<span style="color:red;font-size: 14px;"><strong>Sorry ! Google Recaptcha Unsuccessful.</strong> </span>';
-                              $('#flashbook').html(msg);
-            /*                           // $("#contactform")[0].reset();
-                                     //   setTimeout(function(){
-   window.location.reload(1);
-}, 2000);*/
-                        }else{
+                        }
+                        else{
                             $("#flashbook").addClass( "alert alert-danger" );
                             var msg='<span style="color:red;font-size: 14px;"><strong> Oops..something went wrong.</strong> </span>';
                             $('#flashbook').html(msg);

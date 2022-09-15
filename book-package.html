@@ -374,12 +374,11 @@ P.O Box 83021, Dubai</h6>
                     'package':package,
                     'message':message,
                 };
-                console.log(data)
-                
+
                 $('#submit_package').attr("disabled", true);
                 $('#submit_package').text("Please wait...");
                 $.ajax({
-                    url : "https://script.google.com/macros/s/AKfycbyD_Rs7NRcibhpd2UWglIFxb0hHUH807UNv3D07YCQ6voUhgte_wZJUC-caqHQ4GltQ/exec",
+                    url : "https://script.google.com/macros/s/AKfycbyiAsHLLkMdFEhW2rmXBNGXZaAtBmS-LGKKs-2SzQqWLpiP_1ALpDxYKyxbzKWfLZXpbg/exec",
                     type : 'POST',
                     data : data,
                     success:function(response){

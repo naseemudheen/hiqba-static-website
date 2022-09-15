@@ -102,7 +102,7 @@
                 <div class="col-12 col-sm-12 col-md-7 col-lg-7">
                     <div class="message" id="flashcontact" role="alert" >
                         </div>
-                   <form action="contact" name="contactform" id="contactform" method="post" accept-charset="utf-8">
+                   <form  name="contactform" id="contactform" method="post" accept-charset="utf-8">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Name" >
@@ -321,20 +321,20 @@ P.O Box 83021, Dubai</p>
             }else{
                 $('#name').css("border-color","");
             }
-        var phone=$('#mobile').val();
-            if(phone==''){
+        var mobile=$('#mobile').val();
+            if(mobile==''){
                 $("#mobile").css("border-color","red");
                 return false;
             }else{
                 $("#mobile").css("border-color","");
             }
-        var emailids  = $('#email').val();
-            if(emailids == ''){
+        var email  = $('#email').val();
+            if(email == ''){
                $('#email').css("border-color", "red");
               return false;
             }
             else{
-                var s = ValidEmail(emailids);
+                var s = ValidEmail(email);
                     if(s == false) {
                         $('#email').css("border-color", "red");
                        return false;
@@ -356,18 +356,24 @@ P.O Box 83021, Dubai</p>
                 return false;
             }else{
                 $('#message').css("border-color","");
-                var data= $("#contactform").serialize();
+                var data= {
+                    'name':name,
+                    'email':email,
+                    'mobile':mobile,
+                    'subject':subject,
+                    'message':message,
+                };
                 $('#submit_contact').attr("disabled", true);
                 $('#submit_contact').text("Please wait...");
                 $.ajax({
-                    url : site_url+"contact",
+                    url : "https://script.google.com/macros/s/AKfycbwmWmplSDx_BdudZ0puQU_ZQNGXawlaIk9cbrphuLc6H3u8y-6kvJJWauzIDDb-O8w1Uw/exec",
                     type : 'POST',
                     data : data,
                     success:function(response){
                        // console.log(response); return false;
                         $('#submit_contact').attr("disabled", false);
                         $('#submit_contact').text('SEND MESSAGE ');
-                        if(response==1){
+                        if(response['result']=='success'){
                            $("#flashcontact").addClass( "alert alert-success" );
                             var msg='<span style="color:green;font-size: 14px;"><strong>Thank you for your contact. We will contact you soon.</strong> </span>';
                             $('#flashcontact').html(msg);
@@ -375,11 +381,8 @@ P.O Box 83021, Dubai</p>
                             setTimeout(function(){
                                  window.location.reload(1);
                             }, 2000);
-                        }else if(response==3){
-                            $("#flashcontact").addClass( "alert alert-danger" );
-                            var msg='<span style="color:red;font-size: 14px;"><strong>Sorry ! Google Recaptcha Unsuccessful.</strong> </span>';
-                            $('#flashcontact').html(msg);
-                        }else{
+                        }
+                        else{
                             $("#flashcontact").addClass( "alert alert-danger" );
                             var msg='<span style="color:red;font-size: 14px;"><strong> Oops..something went wrong.</strong> </span>';
                             $('#flashcontact').html(msg);
