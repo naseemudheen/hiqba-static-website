@@ -1,5 +1,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.hiqbatourism.com/</loc>
+        <loc>https://hiqbatourism.com/</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/about.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/services.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/blog.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/contact.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/book-package.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/service-book.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/blog/37.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/blog/39.html</loc>
+    </url>
+    <url>
+        <loc>https://hiqbatourism.com/blog/43.html</loc>
     </url>
 </urlset>
