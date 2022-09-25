@@ -1,3 +1,4 @@
+Sitemap: http://www.hiqbatourism.com/sitemap.xml
 Sitemap: http://www.hiqbatourism.com/sitemap.txt
 User-agent: *
 Disallow:
