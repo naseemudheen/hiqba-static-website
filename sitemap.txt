@@ -1,10 +1,5 @@
 http://hiqbatourism.com/index.html 
 https://hiqbatourism.com/about.html 
 https://hiqbatourism.com/services.html 
-https://hiqbatourism.com/blog.html 
 https://hiqbatourism.com/contact.html 
-https://hiqbatourism.com/book-package.html 
-https://hiqbatourism.com/service-book.html 
-https://hiqbatourism.com/blog/37.html 
-https://hiqbatourism.com/blog/39.html 
-https://hiqbatourism.com/blog/43.html
+
